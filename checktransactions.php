@@ -24,14 +24,14 @@ if($username1!=null):
    include('header.php');
      ?>
   <br><br><br>
-  <div class="container">
-    <div class="container">
-      <div class="row">
-        <p class="text-center">  <?php echo "welcome ".amount('registration',$username)['name'];?></p>
-        <div class="col-sm-2">
-        </div>
-        <div class="col-sm-8">
-          <div class="table-responsive">           
+  <!-- <div class="container"> -->
+    <div class="jumbotron jumbotron-fluid">
+      <!-- <div class="row"> -->
+        <p class="text-center">  <?php echo "welcome <b>".ucwords(amount('registration',$username)['name'])."</b>";?></p>
+        <!-- <div class="col-sm-2">
+        </div> -->
+        <div class="container card">
+          <div class="table-responsive card-body">           
             <table class="table table-striped">
               <thead>
                <tr>
@@ -60,18 +60,18 @@ if($username1!=null):
           </table>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-2">
-      </div>
-      <div class="row">
-        <p>  <?php echo 'money borrowed history'
-        ?></p>
+    <!-- </div> -->
+    <!-- <div class="row"> -->
+      <!-- <div class="col-sm-2">
+      </div> -->
+      <!-- <div class="row"> -->
+       
+        <!-- <div class="col-sm-2">vvvz
+        </div> -->
+        <div class="container card">
+           <h4>  money borrowed history</h4>
 
-        <div class="col-sm-2">
-        </div>
-        <div class="col-sm-8">
-          <div class="table-responsive">           
+          <div class="table-responsive card-body">           
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -211,28 +211,28 @@ if($username1!=null):
          </thead>
          <tbody>
           <?php
-          $get_id= amount('loan',$username1);
+          $get_id = count(amount('loan',$username1)) > 0?amount('loan',$username1):[];
           ?>
           <tr>
-            <td><?php echo $get_id['username']; ?>
+            <td><?php echo isset($get_id['username'])?$get_id['username']:""; ?>
           </td>
           <td>
-            <?php echo $get_id['loan_borrowed']; ?>
+            <?php echo isset($get_id['loan_borrowed'])?$get_id['loan_borrowed']:""; ?>
 
           </td> 
 
           <td>
-            <?php echo $get_id['loan_with_interest']; ?>
+            <?php echo isset($get_id['loan_with_interest'])?$get_id['loan_with_interest']:""; ?>
 
           </td>
 
-          <td><?php echo $get_id['loan_paid_WITH_interest']; ?>
+          <td><?php echo isset($get_id['loan_paid_WITH_interest'])?$get_id['loan_paid_WITH_interest']:""; ?>
         </td>
-        <td> <?php echo $get_id['loan_received']; ?>
+        <td> <?php echo isset($get_id['loan_received'])?$get_id['loan_received']:""; ?>
       </td>
     </td>
 
-    <td> <?php echo $get_id['last_update']; ?>
+    <td> <?php echo isset($get_id['last_update'])?$get_id['last_update']:""; ?>
   </td>                  
 </tr>
 

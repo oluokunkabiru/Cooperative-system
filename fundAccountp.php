@@ -18,6 +18,7 @@ if(isset($_POST['submit'])){
 }
 if(count($errs)==0){
  include('database.php');
+//  echo "hello";
  $username=$_SESSION['username'];
  $email=amount('registration',$username)['email'];
  $date=date("d-m-y");
@@ -25,12 +26,22 @@ if(count($errs)==0){
  $type="saving";
  $to_refund="saving";
  tran_update($username,$email,$type,$to_refund,$amount,$date,$time);
- $total_amount=amount('temporary',$username)['tem_saving']+$amount;
+ $total_amount=isset(amount('temporary',$username)['tem_saving'])?amount('temporary',$username)['tem_saving']:0;
+ $total_amount +=  $amount;
  $sql="UPDATE temporary SET tem_saving='$total_amount' WHERE username='$username'";
- $total_amount=amount('temporary',$username)['saving']+$amount;
+
+ $total_amount=isset(amount('temporary',$username)['saving'])?amount('temporary',$username)['saving']:0;
+ $total_amount +=$amount;
+ echo $total_amount;
  $sql1="UPDATE temporary SET saving='$total_amount' WHERE username='$username'";
  $connection=mysqli_query($conn,$sql);
+ 
  $connection1=mysqli_query($conn,$sql1);
+//  if($connection1){
+//    echo "success";
+//  }else{
+//    echo "Faill " . mysqli_error($conn);
+//  }
  header('location:dashboard.php');
  exit();
 }else {

@@ -96,7 +96,7 @@ function history($table_name,$username,$type){
 
 function tran_update($username,$email,$type,$to_refund,$amt,$date,$time)
 { global $conn;
-  $sql="INSERT INTO transactions(id,username,email,type,to_refund,Amt,date,time) VALUES ('NULL','$username','$email','$type','$to_refund','$amt','$date','$time')";
+  $sql="INSERT INTO transactions(username,email,type,to_refund,Amt,date,time) VALUES ('$username','$email','$type','$to_refund','$amt','$date','$time')";
   $sumit_query=mysqli_query($conn,$sql);
   if(!$sumit_query)
   {
@@ -105,7 +105,7 @@ function tran_update($username,$email,$type,$to_refund,$amt,$date,$time)
 }
 function temp($username,$tem_saving,$saving,$status){
   global $conn;
-  $tem="INSERT INTO temporary (id,username,tem_saving,saving,status) VALUES ('NULL','$username','$tem_saving','$saving','$status')";
+  $tem="INSERT INTO temporary (username,tem_saving,saving,status) VALUES ('$username','$tem_saving','$saving','$status')";
   $tem_con=mysqli_query($conn,$tem);
   if(!$tem_con){
     return mysqli_error($conn);
@@ -113,7 +113,7 @@ function temp($username,$tem_saving,$saving,$status){
 }
 function loan($username,$loan_borrowed,$loan_with_interest,$loan_paid_WITH_interest,$loan_received,$last_loan_duration,$last_update){
   global $conn;
-  $loan="INSERT INTO loan (id,username,loan_borrowed,loan_with_interest,loan_paid_WITH_interest,loan_received,last_loan_duration,last_update) VALUES ('NULL','$username','$loan_received','$loan_with_interest','$loan_paid_WITH_interest','$loan_received','$last_loan_duration','$last_update')";
+  $loan="INSERT INTO loan (username,loan_borrowed,loan_with_interest,loan_paid_WITH_interest,loan_received,last_loan_duration,last_update) VALUES ('$username','$loan_received','$loan_with_interest','$loan_paid_WITH_interest','$loan_received','$last_loan_duration','$last_update')";
   $loan_con=mysqli_query($conn,$loan);
   
 }
@@ -130,7 +130,7 @@ function admin($table_name,$colomn){
 }
 function insert($username,$inter){
   global $conn;
-  $sql="INSERT INTO interest_per_head (id,username,interest) VALUES ('NULL','$username','$inter')";
+  $sql="INSERT INTO interest_per_head (username,interest) VALUES ('$username','$inter')";
   mysqli_query($conn,$sql);
 }
 

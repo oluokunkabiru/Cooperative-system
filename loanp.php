@@ -15,9 +15,9 @@ if(($_SERVER['REQUEST_METHOD']=="POST") && isset($_POST['submit'])){
   array_push($err,'username and duration is required'); 
 }else{
  if($amount_to_borrow>999){
-   if($duration<12){
-     if($amount_to_borrow<=2*$saving){
-       if($loan_received>=$loan_borrowed){
+   if($duration < 12){
+     if($amount_to_borrow <= 2*$saving){
+       if($loan_received >= $loan_borrowed){
            //sum all the saving-(loan_borrowed-$loan_received) and saving together and compare;
          $sum_loan_received_query="SELECT SUM(loan_received) AS total FROM loan";
          $sum_loan_received_query_connection=mysqli_query($conn,$sum_loan_received_query);
@@ -86,6 +86,6 @@ if(count($err)>0){
   header('location:dashboard.php');
 }
 }else {
- header('location:login.php');
+ header('location:index.php');
 }
 ?>

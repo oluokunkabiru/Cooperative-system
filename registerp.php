@@ -27,14 +27,14 @@ if(($_SERVER["REQUEST_METHOD"]=='POST') && isset($_POST['submit'])){
 if (count($err)==0) {
 
  $test_bvn=(string)($bvn);
- if(strlen($test_bvn)==11){
+//  if(strlen($test_bvn)==11){
 
 
- }else {
-  array_push($err,"invalid bvn");
-  array_push($err,strlen($test_bvn));
+//  }else {
+//   array_push($err,"invalid bvn");
+//   array_push($err,strlen($test_bvn));
 
-}
+// }
 if(!filter_var($email, FILTER_VALIDATE_EMAIL) === false){
   $email=$email;
 }else{

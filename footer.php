@@ -10,7 +10,7 @@
                         <p class="text-danger contactmeerror"></p>
                       </div>
                       <div class="">
-                          <form id="contactme" method="post">
+                          <form id="contactme" action="#" method="post">
                                       <div class="form-group">
                                       <label for="usr" class="text-center" >Your name in full</label>
                                           <input class="form-control" type="text" name="name" placeholder="Name">

@@ -12,7 +12,7 @@
          if(isset($_SESSION['username'])){
      ?>
     <li class=" nav-item "> <a class="nav-link" href="fundAccount.php">Fund wallet</a></li>  
-    <li class=" nav-item "> <a class="nav-link" href="load.php">Loan</a></li>  
+    <li class=" nav-item "> <a class="nav-link" href="loan.php">Loan</a></li>  
     
      <?php } ?>
     <li class=" nav-item active"> <a class="nav-link" href="dashboard.php"><?php echo ucwords($username) ?></a></li>  

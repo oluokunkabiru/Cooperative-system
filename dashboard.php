@@ -48,13 +48,14 @@ if(isset($_SESSION['login']) && isset($_SESSION['username'])):
         <?php include('header.php') ?>
         <br><br><br>
         <div class="container">
-          <div class="row">
             <?php if(isset($_SESSION['suc'])):?>
               <div class='text-center but-success'>
                <?php echo $_SESSION['suc'];
                unset($_SESSION['suc']) ;   ?>
              </div>
            <?php endif ?>
+          <div class="row">
+          
            <div class="col-sm-4">
             <h2>My Account
             </h2>

@@ -28,9 +28,9 @@
    $interest_from_database=$from_databaseconnect['total'];
  }
  $real_interest=$interest-$interest_from_database;
- echo $real_interest;
+//  echo $real_interest;
          //update the real interest to database
- $interest_sql="INSERT INTO interest(id,interest,date) VALUES ('NULL','$real_interest','$date')";
+ $interest_sql="INSERT INTO interest(interest,date) VALUES ('$real_interest','$date')";
  mysqli_query($conn,$interest_sql);
 
  $sql_all="SELECT *FROM registration";
@@ -48,7 +48,7 @@
     mysqli_query($conn,$sql);
   }
   $content1=amount('temporary',$username);
-  $tem_saving=$content1['tem_saving'];
+  $tem_saving=isset($content1['tem_saving'])?$content1['tem_saving']:0;
   $total=$saving+$tem_saving;
   $sql_all_update="UPDATE registration SET saving='$total' WHERE username='$username'";
   $sql_all_update1="UPDATE temporary SET tem_saving='0' WHERE username='$username'";
