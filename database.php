@@ -75,7 +75,7 @@ function amount($table_name,$username){
   $sql_amount="SELECT *FROM $table_name WHERE username='$username'";
   $connection=mysqli_query($conn,$sql_amount);
   $get_amo=mysqli_fetch_array($connection,MYSQLI_ASSOC);
-  return $get_amo;
+  return isset($get_amo)?$get_amo:[];
 };
 
 //admin is this owner

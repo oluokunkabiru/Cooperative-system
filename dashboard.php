@@ -4,10 +4,12 @@ if(isset($_SESSION['login']) && isset($_SESSION['username'])):
     $err_message="";
     include("database.php");
     $username=$_SESSION['username'];
-    $debt=    amount('loan',$username)['loan_borrowed']-amount('loan',$username)['loan_received'];
+    $debt=   count(amount('loan',$username)) > 0? amount('loan',$username)['loan_borrowed']-amount('loan',$username)['loan_received']:0;
+    $total=0;
+    if($debt){
     $interest=$debt*(4/100)*(amount('loan',$username)['last_loan_duration']);
     $total=$debt+$interest;
-
+    }
     if(isset($_GET['data'])){
       header('location:data.php');
     }
@@ -39,48 +41,11 @@ if(isset($_SESSION['login']) && isset($_SESSION['username'])):
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
-
+<?php include('style.php') ?>
         <title>Dashboard</title>
       </head>
       <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-
-         <button  class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-           <!-- <span class="sr-only">Toggle navigation</span> -->
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span> 
-         </button>
-         <span class="navbar-brand" >SWEP Group 7 cooperative society</span>
-
-         <div class="container">
-           <div class="navbar-collapse collapse">
-             <ul class="nav navbar-nav navbar-right">
-               <li class="active"><a href="fundAccount.php">Sow seed</a></li> 
-               <li class="active"><a href="loan.php">Loan money</a></li>
-               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php 
-                echo $_SESSION['username']; ?>
-                <b class="caret"></b>
-                <ul class="dropdown-menu">
-                  <li ><a href="?logout">logout</a></li>
-                </ul>
-                <li style="background: red;"><a href="?logout">logout</a></li>
-
-
-
-
-              </ul>
-
-
-
-            </div>
-
-          </div>
-
-        </nav>
+        <?php include('header.php') ?>
         <br><br><br>
         <div class="container">
           <div class="row">
@@ -111,7 +76,8 @@ if(isset($_SESSION['login']) && isset($_SESSION['username'])):
                 </ul>
                 <ul class='list-group'>
                   <li class="list-group-item text-center">
-                   <h5> <?php echo 'Interest: N'.amount('interest_per_head',$username)['interest']; ?></h5>
+                   
+                   <h5> Interest: ₦<?php echo count(amount('interest_per_head',$username)) > 0 ? amount('interest_per_head',$username)['interest']:0; ?></h5>
                  </li>
                </ul>
              </h4>
@@ -123,7 +89,7 @@ if(isset($_SESSION['login']) && isset($_SESSION['username'])):
           <div class="panel panel-default">
             <div class="panel-body btn-info text-center">
               <h4 class="text-center">Uncredited Money</h4>
-              <h4  class="text-center">N <?php echo amount('temporary',$username)['tem_saving'];?></h4>
+              <h4  class="text-center">₦ <?php echo count(amount('temporary',$username))>0?amount('temporary',$username) ['tem_saving']:0;?></h4>
             </div>
             <ul class="list-group">
               <li class="list-group-item"><a href="?fundAccount">Sow Seed (Save for fututre)</a></li>
