@@ -4,30 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
-  <link rel="stylesheet" href="css/register.css" >
+  <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="css/register.css" > -->
+  <?php
+   include('style.php');
+     ?>
   <title>Admin</title>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">       
-   <button  class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-     <!-- <span class="sr-only">Toggle navigation</span> -->
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span>
-     <span class="icon-bar"></span> 
-   </button>
-   <span class="navbar-brand" >Lautech cooperative society</span>
-   <div class="container">
-     <div class="navbar-collapse collapse">
-       <ul class="nav navbar-nav navbar-right">
-         <li class="active"><a href="login.php">Login</a></li>  
-         <li class="active"><a href="Register.php">Register</a></li>
-         <li class="active"><a href="checktransactions.php">Check Transaction</a></li> 
-       </ul>   
-     </div>
-   </div>
- </nav>
+<?php
+   include('header.php');
+     ?>
  <br/><br/><br/><br/>
  <div class="container">
   <div class="row">
@@ -37,7 +24,7 @@
       <br><br><br>
       <div class="panel panel-default">
         <div class="panel-body text-center">
-          <img src="image/Cooperative.jpg"style="height: 100px;margin-top: 50px;margin-bottom:45px ">
+          <img src="images/about_1.jpg"style="height: 100px;margin-top: 50px;margin-bottom:45px ">
           <div class="row">
              
             <?php 
@@ -76,13 +63,9 @@
     </div>
   </div>
 </div>
-<div class="navbar navbar-inverse navbar-fixed-bottom">
-  <div class="container">
-    <div class="navbar-text pull-right" >
-     <p>Copyright Lautech Cooperative Society <?php echo date('Y')?>
-     </p>
-   </div>
- </div>
-</div>
+<?php
+   include('footer.php');
+    include('script.php');
+     ?>
 </body>
 </html>

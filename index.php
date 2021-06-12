@@ -4,20 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
-  <link rel="stylesheet" href="css/register.css" >
+  <?php include('style.php') ?>
 
   <title>Login</title>
   <style>
-   body{
+   /* body{
     background-color: lightblue;          
-  }
+  } */
 </style>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
    <button  class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-     <!-- <span class="sr-only">Toggle navigation</span> -->
      <span class="icon-bar"></span>
      <span class="icon-bar"></span>
      <span class="icon-bar"></span>
@@ -29,15 +27,16 @@
      <div class="navbar-collapse collapse">
        <ul class="nav navbar-nav navbar-right">
          <li class="active"><a href="login.php">home</a></li>  
-         <li class="active"><a href="Register.php">Register</a></li>
+         <li class="active"><a href="register.php">Register</a></li>
          <li class="active"><a href="admin.php">Admin</a></li> 
          <li class="active"><a href="dashboard.php">myaccount</a></li> 
        </ul>
      </div>
    </div>
- </nav>
+ </nav> -->
+ <?php include('header.php') ?>
  <br><br><br>
- <div class="container-fluid">
+ <!-- <div class="container-fluid">
   <div class="container">
     <div class="row">
       <div class="panel panel-primary">
@@ -45,10 +44,10 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="container"id='cont'>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="row">
@@ -81,20 +80,17 @@
         <p class="text-center"><a href="register.php">Register here</a></p>
       </div>
     </div>
-    <div class="col-sm-8">
-      <div class="thumbnail img-responsive">
-        <img src="image/fundcooperative1.jpg" alt="" srcset="">
+    <div class="col-md-8">
+      <div class="card">
+        <img src="images/about_1.jpg" class="card-img" alt="" srcset="">
       </div>
     </div>
-    <div class="navbar navbar-inverse navbar-fixed-bottom">
-      <div class="container">
-        <div class="navbar-text pull-right" >
-         <p>Copyright Lautech Cooperative Society <?php echo date('Y')?>
-         </p>
-       </div>
-     </div>
-   </div>
+  </div>
+
+
+   <?php
+   include('footer.php');
+    include('script.php');
+     ?>
  </body>
  </html>
- <script src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
- <script src="http://localhost:9090/dashboard/rreal/bootstrap/js/bootstrap.min.js" ></script>

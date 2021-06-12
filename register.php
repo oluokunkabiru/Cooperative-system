@@ -4,43 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+    <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" > -->
+    <?php include('style.php') ?>
+
     <style >
-        #show{
+        /* #show{
             text-decoration:none;
         }
         #cont{  background-color:black;
             background-repeat: no-repeat;
             background-size: 2000px; ;
-        }
+        } */
     </style>
     <title>Registration</title>
 </head>
 <body >
     <div id="cont" class='thumbnail img-responsive'>
-        <div class="container">
-            <nav class="navbar navbar-inverse navbar-fixed-top"style='background:blue'>
+    <?php include('header.php') ?>
 
-                <button  class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                    <!-- <span class="sr-only">Toggle navigation</span> -->
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span> 
-                </button>
-                <span class="navbar-brand" >@group7 cooperative society </span>
-                <div class="container">
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li ><a href="login.php">login</a></li> 
-                            <li ><a href="loan.php">borrow loan</a></li>
-                            <li ><a href="dashboard.php">myaccount</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <br><br><br>
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
@@ -52,7 +33,7 @@
                             session_start();
                             if(isset($_SESSION['errs'])):?>
                                 <div class="row">
-                                    <div class="alert alert-danger text-center">
+                                    <div class="alert alert-danger">
                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                        <?php
                                        foreach ($_SESSION['errs'] as $key) :
@@ -65,7 +46,7 @@
                         endif;
 
                         ?>
-                        <form action="<?php echo 'registerp.php' ?>" method="post">
+                        <form action="registerp.php" method="post">
                             <div class="form-group form-group-sm">
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
                             </div>
@@ -139,14 +120,11 @@
 
 
                 <br><br><br>
-                <div class="navbar navbar-inverse navbar-fixed-bottom">
-                    <div class="container">
-                        <div class="navbar-text pull-right" >
-                         <p>Copyright Lautech Cooperative Society <?php echo date('Y')?>
-                     </div>
-                 </div>
-             </div></div>
+                <?php
+   include('footer.php');
+    include('script.php');
+     ?>
          </body>
          </html>
-         <script src="js/registration.js">
+         <!-- <script src="js/registration.js"> -->
          </script>

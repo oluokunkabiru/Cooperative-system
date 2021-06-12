@@ -62,6 +62,8 @@ if (count($err)==0) {
   $sql_check="SELECT *FROM registration WHERE username='$username' or email='$email' or phoneno='$phone_no' ";
   $connection=mysqli_query($conn,$sql_check);
   $u=mysqli_fetch_array($connection,MYSQLI_ASSOC);
+  $u = isset($u)?$u:"";
+  if($u){
   if($u['phoneno']==$phone_no){
     array_push($err,"phone no already exist ");
     
@@ -75,17 +77,25 @@ if (count($err)==0) {
     array_push($err,"bvn already exist ");
     
   }
+}
+
   if(count($err)==0){
-    $fin="INSERT INTO registration (id,name,username,bvn,password,email,phoneno,saving,date,time,NameofG,BvnofG,EmailofG,PhoneofG) VALUES ('NULL','$name','$username','$bvn','$password','$email','$phone_no','$saving','$date','$time','$NameofG','$BvnofG','$EmailofG','$PhoneofG')";  
+    echo "Total ". count($err);
+
+    $fin="INSERT INTO registration (name,username,bvn,password,email,phoneno,saving,date,time,NameofG,BvnofG,EmailofG,PhoneofG) 
+    VALUES ('$name','$username','$bvn','$password','$email','$phone_no','$saving','$date','$time','$NameofG','$BvnofG','$EmailofG','$PhoneofG')";  
     $insert=mysqli_query($conn,$fin);
     $tem_saving=0;
     $saving=0;
     $status='credit';
+
+
     temp($username,$tem_saving,$saving,$status);
     loan($username,0,0,0,0,0,$time);
     insert($username,0);
+    
   }
-  mysqli_close($conn);
+  // mysqli_close($conn);
 }
 session_start();
 if(count($err)!=0){
@@ -95,7 +105,7 @@ if(count($err)!=0){
  exit();
 
 }else{
-  header("location:login.php");
+  header("location:index.php");
   $_SESSION['sucess']="thank u for registering ";
   exit();
 }

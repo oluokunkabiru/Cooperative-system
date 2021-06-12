@@ -14,29 +14,15 @@ if($username1!=null):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="css/register.css" >
+    <?php
+   include('style.php');
+     ?>
     <title>Check Transaction Event</title>
   </head>
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">  
-      <button  class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-       <!-- <span class="sr-only">Toggle navigation</span> -->
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span> 
-     </button>
-     <span class="navbar-brand" >SWEP Group 7 cooperative society</span>
-     <div class="container">
-       <div class="navbar-collapse collapse">
-         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="Register.php">Register</a></li>
-          <li class="active"><a href="login.php">Login</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <?php
+   include('header.php');
+     ?>
   <br><br><br>
   <div class="container">
     <div class="container">
@@ -261,6 +247,12 @@ if($username1!=null):
 </div></div></div></div></div>
 <?php endif;endif;
 ?>
+<?php
+   include('footer.php');
+   include('script.php');
+     ?>
+  </body>
+  </html>
 
 
 

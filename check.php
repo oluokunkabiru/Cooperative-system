@@ -15,31 +15,16 @@ if (isset($_GET['logout']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
-
+    <?php
+   include('style.php');
+     ?>
     <title>Check</title>
 </head>
 <body>
     <div class="container">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-
-            <button  class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span> 
-            </button>
-            <span class="navbar-brand" >SWEP Group 7 cooperative society</span>
-            <div class="container">
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="login.php">User Login</a></li>
-                        <li class="active"><a href="register.php">Register</a></li>
-                        <li ><a style="color:red"  href="?logout">logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <?php
+   include('header.php');
+     ?>
         <br><br><br>
         <div class='container'>
             <div class='row'>
@@ -100,11 +85,11 @@ if (isset($_GET['logout']))
        </div>
        <!-- table -->
    </div class="container">
-   <div class="row">
-    <div class="col-sm-12">
+   <!-- <div class="row"> -->
+    <!-- <div class="col-sm-12"> -->
 
       <div class="table-responsive">           
-        <table class="table table-striped">
+        <table class="table table-striped ">
           <thead>
             <tr>
                 <th>Loan Received</th> 
@@ -133,9 +118,13 @@ if (isset($_GET['logout']))
       </tbody>
   </table>
 </div>
+<!-- </div> -->
+<!-- </div> -->
 </div>
-</div>
-</div>
+<?php
+   include('footer.php');
+   include('script.php');
+     ?>
 </body>
 </html>
 <?php else:header('location:login.php');endif ?>

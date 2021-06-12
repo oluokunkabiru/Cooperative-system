@@ -19,19 +19,21 @@ if(($_SERVER['REQUEST_METHOD']=='POST') && ($_POST['submit']))
     $sql_login="SELECT *FROM registration WHERE username='$username' AND password='$password'";
     $connection=mysqli_query($conn,$sql_login);
     $login=mysqli_fetch_array($connection,MYSQLI_ASSOC);
-    mysqli_close($conn);
+    // print_r($login);
+    // mysqli_close($conn);
     if($login){
       $_SESSION['login']="success";
       $_SESSION['username']=$username;
       header("location:dashboard.php");
       exit();
     }else{
+      // echo "No ". mysqli_error($conn);
       array_push($err,'invalid password or username');
     }   
   }
   if(count($err)>0){
     $_SESSION['login_err']=$err;
-    header("location:login.php");
+    header("location:index.php");
     exit();
   }
 }

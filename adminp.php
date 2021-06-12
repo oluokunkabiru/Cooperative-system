@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
   }
   else
   {
-    $_SESSION['login_admin']='login';
+    $_SESSION['login_admin']=$username;
     header('location:check.php');
   }
 }

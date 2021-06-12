@@ -305,18 +305,11 @@ mysqli_close($conn);
 </div>
 </div>
 <br><br><br>
-<div class="navbar navbar-inverse navbar-fixed-bottom">
-  <div class="container">
-    <div class="navbar-text pull-right" >
-     <p>Copyright Lautech Cooperative Society <?php echo date('Y')?>
-     </p>
-   </div>
- </div>
-</div>
+<?php
+   include('footer.php');
+    include('script.php');
+     ?>
 </body>
 </html>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://localhost:9090/dashboard/rreal/bootstrap/js/bootstrap.min.js" ></script>
 <?php endif;
-else:header('location:login.php');endif;?>
+else:header('location:index.php');endif;?>
